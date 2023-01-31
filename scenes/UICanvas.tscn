@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Input Prompts/Tiles/tile_0441.png" type="Texture" id=1]
+[ext_resource path="res://assets/Fonts/Kenney Future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Input Prompts/Tiles/tile_0439.png" type="Texture" id=3]
+[ext_resource path="res://assets/Input Prompts/Tiles/tile_0438.png" type="Texture" id=4]
+[ext_resource path="res://assets/Input Prompts/Tiles/tile_0425.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="UICanvas" type="CanvasLayer"]
+
+[node name="WalkContainer" type="MarginContainer" parent="."]
+margin_left = 40.0
+margin_top = 640.0
+margin_right = 112.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WalkContainer"]
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="WalkContainer/HBoxContainer"]
+margin_right = 34.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+texture = ExtResource( 1 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="WalkContainer/HBoxContainer"]
+margin_left = 38.0
+margin_right = 72.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+
+[node name="WalkTextContainer" type="MarginContainer" parent="."]
+margin_left = 120.0
+margin_top = 640.0
+margin_right = 192.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WalkTextContainer"]
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="WalkText" type="Label" parent="WalkTextContainer/HBoxContainer"]
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "WALK"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="LevelTextContainer" type="MarginContainer" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 704.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelTextContainer"]
+margin_right = 640.0
+margin_bottom = 64.0
+
+[node name="LevelText" type="Label" parent="LevelTextContainer/HBoxContainer"]
+margin_top = 18.0
+margin_right = 640.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "LEVEL ?"
+valign = 3
+autowrap = true
+uppercase = true
+
+[node name="JumpKeyContainer" type="MarginContainer" parent="."]
+margin_left = 1120.0
+margin_top = 640.0
+margin_right = 1152.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JumpKeyContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="TextureRect2" type="TextureRect" parent="JumpKeyContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+texture = ExtResource( 4 )
+expand = true
+
+[node name="JumpTextContainer" type="MarginContainer" parent="."]
+margin_left = 1160.0
+margin_top = 640.0
+margin_right = 1232.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JumpTextContainer"]
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="JumpText" type="Label" parent="JumpTextContainer/HBoxContainer"]
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Jump"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="RupKeyContainer" type="MarginContainer" parent="."]
+margin_left = 976.0
+margin_top = 640.0
+margin_right = 1008.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RupKeyContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="TextureRect2" type="TextureRect" parent="RupKeyContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="RunTextContainer" type="MarginContainer" parent="."]
+margin_left = 1016.0
+margin_top = 640.0
+margin_right = 1088.0
+margin_bottom = 672.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RunTextContainer"]
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="JumpText" type="Label" parent="RunTextContainer/HBoxContainer"]
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "RUN"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true

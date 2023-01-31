@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Sunny-land-assets-files/PNG/spritesheets/payer-run.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sunny-land-assets-files/PNG/spritesheets/player-idle.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sunny-land-assets-files/PNG/spritesheets/player-jump.png" type="Texture" id=3]
+[ext_resource path="res://scripts/sprites/PlayerBody.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerBody/IdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerBody/JumpSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerBody/IdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerBody/JumpSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerBody/RunSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerBody/RunSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="Player" type="Node2D"]
+
+[node name="PlayerBody" type="KinematicBody2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 4 )
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="PlayerBody"]
+position = Vector2( 0, 5.33333 )
+shape = SubResource( 1 )
+
+[node name="IdleSprite" type="Sprite" parent="PlayerBody"]
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="JumpSprite" type="Sprite" parent="PlayerBody"]
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="RunSprite" type="Sprite" parent="PlayerBody"]
+texture = ExtResource( 1 )
+hframes = 6
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="PlayerBody"]
+root_node = NodePath("../..")
+anims/Idle = SubResource( 2 )
+anims/Jump = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+anims/Run = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+current = true
+zoom = Vector2( 0.9, 0.9 )
